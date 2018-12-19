@@ -19,7 +19,6 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-
 # initialize autocomplete
 autoload -U compinit add-zsh-hook
 compinit
@@ -61,12 +60,34 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_GIT_BRANCH_PREFIX='\ue725 '
+SPACESHIP_NODE_SYMBOL='\ue718 '
+SPACESHIP_GIT_STATUS_PREFIX='('
+SPACESHIP_GIT_STATUS_SUFFIX=')'
+SPACESHIP_GIT_BRANCH_COLOR='magenta'
+SPACESHIP_PACKAGE_COLOR='yellow'
+SPACESHIP_PROMPT_PREFIXES_SHOW=false
+SPACESHIP_PROMPT_ORDER=(
+    dir
+    line_sep
+    exit_code
+    char
+)
+SPACESHIP_RPROMPT_ORDER=(
+    git
+    node
+    jobs
+)
 if [ -z ${RELOAD}  ]; then
     export ZPLUG_HOME=/usr/local/opt/zplug
     source $ZPLUG_HOME/init.zsh
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
     zplug 'zsh-users/zsh-syntax-highlighting', defer:2
     zplug 'zsh-users/zsh-autosuggestions'
+    zplug 'denysdovhan/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
     export NVM_AUTO_USE=true
     # export NVM_NO_USE=true
     zplug 'lukechilds/zsh-nvm'
