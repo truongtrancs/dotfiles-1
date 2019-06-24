@@ -2,8 +2,9 @@
 
 # Backup files that are provided by the dotfiles into a ~/dotfiles-backup directory
 
-DOTFILES=$HOME/.dotfiles
 BACKUP_DIR=$HOME/dotfiles-backup
+echo "DOTFILES = ${BASH_SOURCE[0]}"
+exit 0
 
 set -e # Exit immediately if a command exits with a non-zero status.
 

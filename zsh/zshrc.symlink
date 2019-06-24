@@ -1,4 +1,4 @@
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="${$(readlink "${BASH_SOURCE[0]:-${(%):-%x}}")%/*/*}"
 export ZSH=$DOTFILES/zsh
 
 # display how long all tasks over 10 seconds take

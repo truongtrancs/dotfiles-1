@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# TODO: is this available to sub-shells?
+DOTFILES="$(dirname "$(realpath -e "$0")")"
+
 command_exists() {
     type "$1" > /dev/null 2>&1
 }
