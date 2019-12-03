@@ -17,6 +17,12 @@ base0D='#6A9FB5' # - Functions, Methods, Attribute IDs, Headings
 base0E='#AA759F' # - Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F='#8F5536' # - Deprecated, Opening/Closing Embedded Language Tags, e.g. <? php ?>
 
+# separators
+tm_separator_left_bold="◀"
+tm_separator_left_thin="❮"
+tm_separator_right_bold="▶"
+tm_separator_right_thin="❯"
+
 set -g status-left-length 32
 set -g status-right-length 150
 set -g status-interval 5
@@ -54,4 +60,4 @@ tm_tunes="#[bg=$base00,fg=$base0D] ♫ #(osascript -l JavaScript ~/.dotfiles/app
 tm_battery="#[fg=$base0F,bg=$base00] ♥ #(battery)"
 tm_date="#[default,bg=$base00,fg=$base0C] %R"
 tm_host="#[fg=$base0E,bg=$base00] #h "
-set -g status-right "$tm_tunes $tm_battery $tm_date $tm_host"
+set -g status-right "$tm_tunes $tm_separator_left_thin $tm_battery $tm_separator_left_thin $tm_date $tm_separator_left_thin $tm_host"
