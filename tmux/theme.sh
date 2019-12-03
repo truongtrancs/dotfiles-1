@@ -55,5 +55,12 @@ tm_date="#[fg=$tm_color_inactive] %R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"
 tm_session_name="#[fg=$tm_color_feature,bold]#S"
 
-set -g status-left $tm_session_name' '
-set -g status-right $tm_tunes' '$tm_date' '$tm_host
+# set -g status-left $tm_session_name' '
+set -g status-left-length 70
+local_ip="#(hostname -I | awk '{print $1}')"
+global_ip="#(curl icanhazip.com) #(ifconfig en0 | grep 'inet ' | awk '{print \"en0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}') "
+set -g status-left "#[fg=green]$local_ip #[default]$tm_separator_right_thin #[fg=red]$global_ip"
+
+# set -g status-right $tm_tunes' '$tm_date' '$tm_host
+set -g status-right-length 70
+set -g status-right "#[fg=cyan,bold] #(echo $USER)@#H #[default]$tm_separator_left_thin #[fg=green]%H:%M #[default]$tm_separator_left_thin #[fg=red] %d-%m-%Y#[default]"
