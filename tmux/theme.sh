@@ -20,20 +20,20 @@ set -g status-interval 5
 # set-option -g status-bg colour0
 set-option -g status-fg $tm_color_active
 set-option -g status-bg default
-set-option -g status-attr default
+set-option -g -style default
 
 # default window title colors
-set-window-option -g window-status-fg $tm_color_inactive
-set-window-option -g window-status-bg default
-set -g window-status-format "#I #W "
+set-window-option -g window-style-fg $tm_color_inactive
+set-window-option -g window-style-bg default
+set -g window-style-format "#I #W "
 # active window title colors
-set-window-option -g window-status-current-fg yellow
-set-window-option -g window-status-current-bg default
-set-window-option -g  window-status-current-format "#[bold]#I #W "
+set-window-option -g window-style-current-fg yellow
+set-window-option -g -current-bg default
+set-window-option -g  window-style-current-format "#[bold]#I #W "
 
 # pane border
-set-option -g pane-border-fg $tm_color_inactive
-set-option -g pane-active-border-fg $tm_active_border_color
+#set-option -g pane-border-fg $tm_color_inactive
+#set-option -g pane-active-border-fg $tm_active_border_color
 
 # message text
 set-option -g message-bg default
@@ -68,6 +68,6 @@ set -g status-right "#[fg=cyan,bold] #(echo $USER)@#H #[default]$tm_separator_le
 
 #set -g status-right '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[fg=colour121,bg=colour235] %r  %a  %Y #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #H #[fg=colour154,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour232,bg=colour154] #(rainbarf --battery --remaining --no-rgb) '
 
-#setw -g window-status-format '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[default] #I  #W #[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]'
+#setw -g window-style-format '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[default] #I  #W #[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]'
 
-#setw -g window-status-current-format '#[fg=colour235,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #I  #W  #F #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]'
+#setw -g window-style-current-format '#[fg=colour235,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #I  #W  #F #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]'
