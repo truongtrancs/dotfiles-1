@@ -4,7 +4,7 @@ tm_color_active=colour32
 tm_color_inactive=colour241
 tm_color_feature=colour206
 tm_color_music=colour215
-tm_active_border_color=colour240
+tm_active_border_color=colour118
 
 # separators
 tm_separator_left_bold=""
@@ -17,27 +17,23 @@ set -g status-right-length 150
 set -g status-interval 5
 
 # default statusbar colors
-# set-option -g status-bg colour0
-set-option -g status-fg $tm_color_active
-set-option -g status-bg default
-set-option -g -style default
+set-option -g status-style bg=default,fg=$tm_color_active
 
 # default window title colors
-set-window-option -g window-style-fg $tm_color_inactive
-set-window-option -g window-style-bg default
-set -g window-style-format "#I #W "
-# active window title colors
-set-window-option -g window-style-current-fg yellow
-set-window-option -g -current-bg default
-set-window-option -g  window-style-current-format "#[bold]#I #W "
+set-window-option -g window-status-style fg=$tm_color_inactive,bg=default
+#set-window-option -g window-status-bg default
 
-# pane border
-#set-option -g pane-border-fg $tm_color_inactive
-#set-option -g pane-active-border-fg $tm_active_border_color
+set -g window-status-format "#I #W "
+# active window title colors
+set-window-option -g  window-status-current-format "#[bold]#I #W "
+set-window-option -g window-status-current-style fg=yellow,bg=default
+
+# pane border colors
+set-option -g pane-border-style fg=$tm_color_inactive
+set-option -g pane-active-border-style fg=$tm_active_border_color
 
 # message text
-set-option -g message-bg default
-set-option -g message-fg $tm_color_active
+set-option -g message-style fg=$tm_color_active,bg=default
 
 # pane number display
 set-option -g display-panes-active-colour $tm_color_active
@@ -68,6 +64,6 @@ set -g status-right "#[fg=cyan,bold] #(echo $USER)@#H #[default]$tm_separator_le
 
 #set -g status-right '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[fg=colour121,bg=colour235] %r  %a  %Y #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #H #[fg=colour154,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour232,bg=colour154] #(rainbarf --battery --remaining --no-rgb) '
 
-#setw -g window-style-format '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[default] #I  #W #[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]'
+#setw -g window-status-format '#[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]#[default] #I  #W #[fg=colour235,bg=colour235,nobold,nounderscore,noitalics]'
 
-#setw -g window-style-current-format '#[fg=colour235,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #I  #W  #F #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]'
+#setw -g window-status-current-format '#[fg=colour235,bg=colour238,nobold,nounderscore,noitalics]#[fg=colour222,bg=colour238] #I  #W  #F #[fg=colour238,bg=colour235,nobold,nounderscore,noitalics]'
